@@ -7,7 +7,7 @@ r = requests.get("https://desktopapps.ryanair.com/en-gb/availability?ADT=1&CHD=0
                  +"Destination={0}&FlexDaysOut=2&INF=0&"
                  +"Origin=TRS&RoundTrip=false&TEEN=0".format(stn)
     )
-print(r.text)
+print(r.tsdfsdfsdfext)
 
 podatki = json.loads(r.text)
 ##
