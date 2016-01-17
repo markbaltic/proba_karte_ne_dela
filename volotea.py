@@ -9,7 +9,6 @@ params = {
     "from":             "VCE",
     "to":               "KGS",
     "departuredate":    "2016-08-28",
-    "returndate":       "2016-08-28",
     "bookingType":      "flight"
 }
 
