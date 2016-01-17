@@ -10,7 +10,7 @@ r = requests.get("https://desktopapps.ryanair.com/en-gb/availability?ADT=1&CHD=0
 ##print(r.text)
 ##
 podatki = json.loads(r.text)
-print(podatki)
+# print(podatki)
 
 
 if len(podatki['trips'][0]['dates'][0]['flights'])==0:
