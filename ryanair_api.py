@@ -27,5 +27,5 @@ class RyanairAPI(object):
         return cene_po_datumih
 
 
-cena = RyanairAPI().get('BGY', 'KGS', '08', '2016')
-print(cena)
+# cena = RyanairAPI().get('BGY', 'KGS', '08', '2016')
+# print(cena)

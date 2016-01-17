@@ -35,5 +35,5 @@ class VoloteaAPI(object):
         return cene_po_datumih
 
 
-cene = VoloteaAPI().get('VCE', 'KGS', '08', '2016')
-print(cene)
+# cene = VoloteaAPI().get('VCE', 'KGS', '08', '2016')
+# print(cene)
