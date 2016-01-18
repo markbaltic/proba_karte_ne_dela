@@ -16,11 +16,11 @@ class VoloteaAPI(object):
             "bookingType":      "flight"
         }
 
-        p = requests.post(
+        result = requests.post(
             'http://booking.volotea.com/Search.aspx?culture=en-GB',
             data=params)
 
-        soup = BeautifulSoup(p.text, "html.parser")
+        soup = BeautifulSoup(result.text, "html.parser")
 
         cene_po_datumih = {}
         for div in soup.find_all('div', attrs={"class": "day-wrapper"}):

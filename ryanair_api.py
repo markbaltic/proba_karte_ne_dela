@@ -3,8 +3,10 @@ import json
 
 
 class RyanairAPI(object):
+    def __init__(self):
+        pass
 
-    def get(cls, origin, dest, mesec, leto):
+    def get(self, origin, dest, mesec, leto):
 
         cene_po_datumih = {}
         for day in range(1, 29):
@@ -13,8 +15,9 @@ class RyanairAPI(object):
             datum_str = '%s-%s-%s' % (leto, mesec, str(day))
 
             r = requests.get(
-                "https://desktopapps.ryanair.com/en-gb/availability?ADT=1&CHD=0&DateOut={0}&Destination={1}&FlexDaysOut=2&INF=0&Origin={2}&RoundTrip=false&TEEN=0".format(
-                    datum_str, dest, origin))
+                "https://desktopapps.ryanair.com/en-gb/availability?ADT=1&"
+                "CHD=0&DateOut=%s&Destination=%s&FlexDaysOut=2&INF=0&"
+                "Origin=%s&RoundTrip=false&TEEN=0" % (datum_str, dest, origin))
 
             podatki = json.loads(r.text)
 
