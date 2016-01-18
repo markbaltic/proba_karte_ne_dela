@@ -9,7 +9,8 @@ class RyanairAPI(object):
     def get(self, origin, dest, mesec, leto):
 
         cene_po_datumih = {}
-        for day in range(1, 29):
+        for day in range(1, 30):
+            print(day)
             if len(str(day)) < 2:
                 day = '0' + str(day)
             datum_str = '%s-%s-%s' % (leto, mesec, str(day))
@@ -30,5 +31,5 @@ class RyanairAPI(object):
         return cene_po_datumih
 
 
-# cena = RyanairAPI().get('BGY', 'KGS', '08', '2016')
-# print(cena)
+##cena = RyanairAPI().get('TSF', 'CFU', '08', '2016')
+##print(cena)
