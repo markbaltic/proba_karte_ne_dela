@@ -6,7 +6,10 @@ from bs4 import BeautifulSoup
 
 class VoloteaAPI(object):
 
-    def get(cls, origin, dest, mesec, leto):
+    def __init__(self):
+        pass
+
+    def get(self, origin, dest, mesec, leto):
         date = '%s-%s-15' % (leto, mesec)
         params = {
             "riptype":          "OneWay",
