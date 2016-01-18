@@ -44,4 +44,4 @@ print(cene_po_datumu)
 
     
 
-print(cene_po_datumu)
+
