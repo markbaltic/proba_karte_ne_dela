@@ -6,32 +6,36 @@ class RyanairAPI(object):
     def __init__(self):
         pass
 
-    def get(self, origin, dest, mesec, leto):
+    def get(self, origin, dest, vsi_mesec, leto):
 
         cene_po_datumih = {}
-        for day in range(1, 31):
-            print(day)
-            if len(str(day)) < 2:
-                day = '0' + str(day)
-            datum_str = '%s-%s-%s' % (leto, mesec, str(day))
 
-            r = requests.get(
-                "https://desktopapps.ryanair.com/en-gb/availability?ADT=1&"
-                "CHD=0&DateOut=%s&Destination=%s&FlexDaysOut=2&INF=0&"
-                "Origin=%s&RoundTrip=false&TEEN=0" % (datum_str, dest, origin))
+        for (mesec,st_dni) in vsi_mesec:
+            print(mesec)
+            for dan in range(1, st_dni+1):
+                print(dan)
+                if len(str(dan)) < 2:
+                    dan = '0' + str(dan)
+                datum_str = '%s-%s-%s' % (leto, mesec, str(dan))
 
-            podatki = json.loads(r.text)
+                r = requests.get(
+                    "https://desktopapps.ryanair.com/en-gb/availability?ADT=1&"
+                    "CHD=0&DateOut=%s&Destination=%s&FlexDaysOut=2&INF=0&"
+                    "Origin=%s&RoundTrip=false&TEEN=0" % (datum_str, dest, origin))
 
-            if len(podatki['trips'][0]['dates'][0]['flights']) == 0:
-                pass
-            else:
-                redna_cena_danes = podatki['trips'][0]['dates'][0]['flights'][0]['regularFare']['fares'][0]['amount']
-                cene_po_datumih[datum_str] = redna_cena_danes
+                podatki = json.loads(r.text)
+
+                if len(podatki['trips'][0]['dates'][0]['flights']) == 0:
+                    pass
+                else:
+                    redna_cena_danes = podatki['trips'][0]['dates'][0]['flights'][0]['regularFare']['fares'][0]['amount']
+                    cene_po_datumih[datum_str] = redna_cena_danes
 
         return cene_po_datumih
 
 
-cena = RyanairAPI().get('TSF', 'CFU', '09', '2016')
+seznam = [('03', 31),('04', 30),('05', 31),('06', 30),('07', 31),('08', 31),('09', 30),('10', 31),('11', 30),('12',31)]
+cena = RyanairAPI().get('TSF', 'CFU', seznam, '2016')
 print(cena)
 
 #21.1.2016 :
