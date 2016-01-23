@@ -4,29 +4,29 @@ from ryanair_api import RyanairAPI
 import time
 
 ###meseci do marca naprej in stevilo dni v mesecu
-# dnevi_v_letu = [('03', 31),('04', 30),('05', 31),('06', 30),('07', 31),('08', 31),('09', 30),('10', 31),('11', 30),('12',31)]
+dnevi_v_letu = [('03', 31),('04', 30),('05', 31),('06', 30),('07', 31),('08', 31),('09', 30),('10', 31),('11', 30),('12',31)]
 
-# ryanair_cene = RyanairAPI().get('TSF', 'CFU', dnevi_v_letu, '2016')
-# volotea_cene = VoloteaAPI().get('VCE', 'CFU', dnevi_v_letu, '2016')
-# ryanair_return_cene = RyanairAPI().get('CFU', 'TSF', dnevi_v_letu, '2016')
-# volotea_return_cene = VoloteaAPI().get('CFU', 'VCE', dnevi_v_letu, '2016')
+ryanair_cene = RyanairAPI().get('TSF', 'CFU', dnevi_v_letu, '2016')
+volotea_cene = VoloteaAPI().get('VCE', 'CFU', dnevi_v_letu, '2016')
+ryanair_return_cene = RyanairAPI().get('CFU', 'TSF', dnevi_v_letu, '2016')
+volotea_return_cene = VoloteaAPI().get('CFU', 'VCE', dnevi_v_letu, '2016')
 
-###zapisejo slovarje v csv
-# with open('volotea_{0}.csv'.format(time.strftime("%Y-%m-%d")),'w', encoding='utf-8', ) as f:
-#     w = csv.writer(f)
-#     w.writerows(volotea_cene.items())
+#zapisejo slovarje v csv
+with open('volotea_{0}.csv'.format(time.strftime("%Y-%m-%d")),'w', encoding='utf-8', ) as f:
+    w = csv.writer(f)
+    w.writerows(volotea_cene.items())
 
-# with open('ryanair_{0}.csv'.format(time.strftime("%Y-%m-%d")),'w', encoding='utf-8', ) as f:
-#     w = csv.writer(f)
-#     w.writerows(ryanair_cene.items())
+with open('ryanair_{0}.csv'.format(time.strftime("%Y-%m-%d")),'w', encoding='utf-8', ) as f:
+    w = csv.writer(f)
+    w.writerows(ryanair_cene.items())
 
-# with open('volotea_return_{0}.csv'.format(time.strftime("%Y-%m-%d")),'w', encoding='utf-8', ) as f:
-#     w = csv.writer(f)
-#     w.writerows(volotea_return_cene.items())
+with open('volotea_return_{0}.csv'.format(time.strftime("%Y-%m-%d")),'w', encoding='utf-8', ) as f:
+    w = csv.writer(f)
+    w.writerows(volotea_return_cene.items())
 
-# with open('ryanair_return_{0}.csv'.format(time.strftime("%Y-%m-%d")),'w', encoding='utf-8', ) as f:
-#     w = csv.writer(f)
-#     w.writerows(ryanair_return_cene.items())
+with open('ryanair_return_{0}.csv'.format(time.strftime("%Y-%m-%d")),'w', encoding='utf-8', ) as f:
+    w = csv.writer(f)
+    w.writerows(ryanair_return_cene.items())
 
 
 ###primer slovarja cen
