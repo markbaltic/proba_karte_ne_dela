@@ -35,10 +35,10 @@ class VoloteaAPI(object):
                     if cena_re and date_re:
                         cena = float(cena_re.group(0).split('=')[1].replace('"', '').replace('€', ''))
                         date = date_re.group(0).split('=')[1].split(' ')[0].replace('"', '')
-                        cene_po_datumih[date] = cena
+                        # cene_po_datumih[date] = cena
 
         return cene_po_datumih
 
-#seznam = [('03', 31),('04', 30),('05', 31),('06', 30),('07', 31),('08', 31),('09', 30),('10', 31),('11', 30),('12',31)]
-#cene = VoloteaAPI().get('VCE', 'CFU', seznam, '2016')
-#print(cene)
+seznam = [('03', 31),('04', 30),('05', 31),('06', 30),('07', 31),('08', 31),('09', 30),('10', 31),('11', 30),('12',31)]
+cene = VoloteaAPI().get('VCE', 'CFU', seznam, '2016')
+print(cene)
